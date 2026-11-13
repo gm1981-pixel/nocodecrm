@@ -14,8 +14,9 @@
 - `send.php` — отправка заявки на info@nocodecrm.ru с журналом согласий; сюда же позже
   подключается CRM.
 - `privacy.html`, `consent.html`, `consent-ads.html` — документы по 152-ФЗ и 38-ФЗ.
-- `update.php` и `.github/workflows/deploy.yml` — выкладка, как на keby.clientbase.ru
-  (см. README.txt, «Выкладка»).
+- `update.php`, `deploy/update_site` и `.github/workflows/deploy.yml` — выкладка, как на
+  keby.clientbase.ru. Пошаговая настройка сервера — README.txt, «Выкладка»; при изменении
+  выкладки обновлять и её.
 - `docs/` — отчёт аудита по требованиям РКН от 12.11.2026 (описывает состояние до
   добавления блоков «подбор формата», «этапы-воронка», 404).
 
@@ -35,7 +36,8 @@
 ## Выкладка
 - `main` — то, что развёрнуто. Работа — в ветках `claude/...`, в `main` через pull request.
 - Push в `main` запускает Actions → `update.php` → `/etc/cron.daily/update_site`
-  (`git reset --hard` + `git pull --ff-only` под `flock`).
+  (`git reset --hard` + `git pull --ff-only` под `flock`, от `www-data`).
+- Код тянется по SSH deploy key (репозиторий приватный), ключ — в `core.sshCommand` клона.
 - В `update.php` нет своей проверки доступа: его закрывает сервер (IP офиса / Basic Auth).
 - Новые служебные файлы и папки (не для посетителей) — добавлять в `.htaccess` (404).
 
