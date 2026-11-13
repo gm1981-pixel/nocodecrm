@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
 Disallow: /send.php
+Disallow: /update.php
 
 Sitemap: https://nocodecrm.ru/sitemap.xml

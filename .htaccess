@@ -1,1 +1,7 @@
 ErrorDocument 404 /404.html
+
+# Сайт — это клон репозитория. Служебное из него наружу не отдаём:
+# историю git, настройки GitHub, заметки и отчёт аудита.
+RedirectMatch 404 ^/(\.git|\.github)(/|$)
+RedirectMatch 404 ^/(CLAUDE\.md|README\.txt)$
+RedirectMatch 404 ^/docs(/|$)
