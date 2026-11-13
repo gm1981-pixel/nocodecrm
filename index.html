@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NoCodeCRM — внедрение и доработка CRM на Платформе КБ под ключ</title>
+<meta name="description" content="Внедряем готовые конфигурации и настраиваем персональные CRM на Платформе КБ: таблицы, отчёты, документы, интеграции, обучение. Проекты от 100 000 ₽. Партнёр Платформы КБ, Казань.">
+<link rel="canonical" href="https://nocodecrm.ru/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nocodecrm.ru/">
+<meta property="og:title" content="NoCodeCRM — CRM, собранная под ваш бизнес">
+<meta property="og:description" content="Внедрение конфигураций и доработка Платформы КБ под ключ. Проекты от 100 000 ₽.">
+<meta property="og:image" content="https://nocodecrm.ru/assets/img/og.png">
+<meta name="theme-color" content="#2B2BFF">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/unbounded-cyrillic-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/golos-text-cyrillic-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/style.css">
+<style>
+symbol g{fill:none;stroke:var(--ink);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.ia{fill:var(--blue)}.ib{fill:var(--lemon)}.ic{fill:var(--coral)}.ip{fill:var(--paper)}
+</style>
+</head>
+<body>
+
+<!-- Набор иконок NoCodeCRM. Нарисованы для этого сайта, сетка 48×48 -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-config" viewBox="0 0 48 48"><g><rect class="ia" x="7" y="26" width="15" height="15" rx="4"/><rect class="ip" x="26" y="26" width="15" height="15" rx="4"/><rect class="ib" x="16.5" y="7" width="15" height="15" rx="4"/></g></symbol>
+  <symbol id="i-custom" viewBox="0 0 48 48"><g><rect class="ip" x="5" y="5" width="34" height="34" rx="8"/><rect class="ia" x="11" y="11" width="9" height="9" rx="2.5"/><rect x="24" y="11" width="9" height="9" rx="2.5"/><rect x="11" y="24" width="9" height="9" rx="2.5"/><rect class="ib" x="26" y="26" width="17" height="17" rx="5"/><path d="M34.5 31v7M31 34.5h7"/></g></symbol>
+  <symbol id="i-tune" viewBox="0 0 48 48"><g><rect class="ip" x="5" y="8" width="38" height="32" rx="8"/><path d="M13 18h22M13 30h22"/><circle class="ib" cx="29" cy="18" r="4.5"/><circle class="ia" cx="19" cy="30" r="4.5"/></g></symbol>
+  <symbol id="i-link" viewBox="0 0 48 48"><g><rect class="ia" x="4" y="14" width="17" height="20" rx="5"/><rect class="ib" x="27" y="14" width="17" height="20" rx="5"/><path d="M21 20.5h6M21 27.5h6"/></g></symbol>
+  <symbol id="i-report" viewBox="0 0 48 48"><g><rect class="ip" x="5" y="5" width="38" height="38" rx="8"/><rect class="ia" x="12" y="24" width="6.5" height="12" rx="1.5"/><rect class="ib" x="20.75" y="13" width="6.5" height="23" rx="1.5"/><rect class="ic" x="29.5" y="19" width="6.5" height="17" rx="1.5"/></g></symbol>
+  <symbol id="i-move" viewBox="0 0 48 48"><g><rect class="ip" x="4" y="9" width="17" height="30" rx="5"/><rect class="ia" x="27" y="9" width="17" height="30" rx="5"/><path d="M9 18h7M9 24h7M9 30h7"/><path class="ib" d="M18 24h14l-4-4.5M32 24l-4 4.5" /></g></symbol>
+  <symbol id="i-teach" viewBox="0 0 48 48"><g><rect class="ip" x="5" y="7" width="38" height="26" rx="7"/><path class="ic" d="M20.5 14.5l10 5.5-10 5.5z"/><path d="M24 33v7M15 41h18"/></g></symbol>
+  <symbol id="i-support" viewBox="0 0 48 48"><g><circle class="ip" cx="23" cy="25" r="18"/><path d="M10 25h7l3-7 5 14 3-7h8"/><circle class="ib" cx="38" cy="10" r="5.5"/></g></symbol>
+  <symbol id="i-table" viewBox="0 0 48 48"><g><rect class="ip" x="5" y="8" width="38" height="32" rx="7"/><path class="ia" d="M5 15a7 7 0 0 1 7-7h24a7 7 0 0 1 7 7v3H5z"/><path d="M5 29h38M19 18v22"/></g></symbol>
+  <symbol id="i-fx" viewBox="0 0 48 48"><g><rect class="ib" x="5" y="5" width="38" height="38" rx="9"/><path d="M12 34c4.5 0 4.5-3.5 5.5-10s1.5-10 6.5-10M12.5 23H23M28 24l8 10M36 24l-8 10"/></g></symbol>
+  <symbol id="i-bell" viewBox="0 0 48 48"><g><path class="ib" d="M12 34V22a12 12 0 0 1 24 0v12z"/><path d="M7 34h34M20 41h8"/><circle class="ic" cx="36" cy="11" r="5"/></g></symbol>
+  <symbol id="i-doc" viewBox="0 0 48 48"><g><path class="ip" d="M11 5h17l10 10v28H11z"/><path class="ib" d="M28 5l10 10H28z"/><path d="M17 24h14M17 31h14M17 37h7"/></g></symbol>
+  <symbol id="i-lock" viewBox="0 0 48 48"><g><path d="M15 21v-5a9 9 0 0 1 18 0v5"/><rect class="ia" x="8" y="21" width="32" height="22" rx="6"/><circle class="ib" cx="24" cy="32" r="3.5"/></g></symbol>
+  <symbol id="i-form" viewBox="0 0 48 48"><g><rect class="ip" x="8" y="4" width="32" height="40" rx="7"/><rect x="14" y="11" width="20" height="7" rx="2.5" fill="#fff"/><rect x="14" y="22" width="20" height="7" rx="2.5" fill="#fff"/><rect class="ic" x="14" y="33" width="13" height="6" rx="3"/></g></symbol>
+  <symbol id="i-mail" viewBox="0 0 48 48"><g><rect class="ip" x="4" y="11" width="38" height="28" rx="6"/><path d="M5 16l18 12 18-12"/><circle class="ia" cx="40" cy="11" r="5.5"/></g></symbol>
+  <symbol id="i-phone" viewBox="0 0 48 48"><g><path class="ib" d="M11 7h8l3 9-5 3a18 18 0 0 0 10 10l3-5 9 3v8a4 4 0 0 1-4 4C21 39 9 27 7 11a4 4 0 0 1 4-4z"/><path d="M29 8a11 11 0 0 1 11 11M29 15a4.5 4.5 0 0 1 4.5 4.5"/></g></symbol>
+  <symbol id="i-action" viewBox="0 0 48 48"><g><rect class="ia" x="4" y="11" width="38" height="19" rx="9.5"/><path d="M13 20.5h12" stroke="#fff"/><path class="ib" d="M27 23l5 19 3.5-7.5 7.5-3.5z"/></g></symbol>
+  <symbol id="i-filter" viewBox="0 0 48 48"><g><path class="ib" d="M5 8h38L28 26v14l-8-4V26z"/><path d="M14 15h20" /></g></symbol>
+  <symbol id="i-api" viewBox="0 0 48 48"><g><rect class="ip" x="5" y="8" width="38" height="32" rx="7"/><path d="M18 18l-6 6 6 6M30 18l6 6-6 6"/><path d="M26.5 15l-5 18" stroke="var(--blue)"/></g></symbol>
+</svg>
+
+<header class="top" id="top">
+  <div class="wrap top-in">
+    <a class="logo" href="#top" aria-label="NoCodeCRM — на главную">
+      <svg viewBox="0 0 34 34" aria-hidden="true"><rect width="34" height="34" rx="7"/><path d="M8 8h6l6 9V8h6v18h-6l-6-9v9H8z"/></svg><span>NoCodeCRM</span>
+    </a>
+    <nav class="nav" id="nav" aria-label="Разделы страницы">
+      <a href="#services">Услуги</a>
+      <a href="#caps">Что настраиваем</a>
+      <a href="#process">Как работаем</a>
+      <a href="#pick">Подбор формата</a>
+      <a href="#price">Цены</a>
+      <a href="#faq">Вопросы</a>
+    </nav>
+    <a class="btn btn-sm btn-blue" href="#lead">Обсудить задачу</a>
+    <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main>
+
+<!-- 1. Первый экран -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="partner"><i><svg viewBox="0 0 24 24"><path d="M5 12.5l5 5 9-11" fill="none" stroke="#15123A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></i>Партнёр Платформы КБ</p>
+      <h1>CRM, собранная под ваш бизнес, а не наоборот</h1>
+      <p class="lead">Внедряем готовые конфигурации и дорабатываем Платформу КБ под ваши процессы: таблицы, отчёты, документы, интеграции. Сотрудники работают так, как привыкли, — система подстраивается под них.</p>
+      <div class="hero-cta">
+        <a class="btn btn-blue" href="#lead">Получить расчёт проекта</a>
+        <a class="btn btn-ghost" href="#price">Посчитать самому</a>
+      </div>
+      <ul class="hero-facts">
+        <li>Проекты от 100 000 ₽</li>
+        <li>Среднее внедрение — 350 000 ₽</li>
+        <li>Смета до начала работ</li>
+      </ul>
+    </div>
+
+    <div class="builder" aria-label="Пример: как система собирается из блоков">
+      <div class="b-tabs" role="tablist" aria-label="Отдел">
+        <button class="b-tab" role="tab" aria-selected="true" data-tab="sales">Продажи</button>
+        <button class="b-tab" role="tab" aria-selected="false" data-tab="prod">Производство</button>
+        <button class="b-tab" role="tab" aria-selected="false" data-tab="stock">Склад</button>
+        <button class="b-tab" role="tab" aria-selected="false" data-tab="proj">Проекты</button>
+      </div>
+      <div class="b-win">
+        <div class="b-bar"><i></i><i></i><i></i><span id="b-title">Сделки</span></div>
+        <div class="b-body">
+          <table class="b-table" id="b-table"></table>
+          <div class="b-fx" id="b-fx"></div>
+          <div class="b-extra" id="b-extra"></div>
+        </div>
+      </div>
+      <div class="b-tools">
+        <span>Добавьте блок:</span>
+        <button class="b-tool" aria-pressed="true" data-tool="report">Отчёт</button>
+        <button class="b-tool" aria-pressed="false" data-tool="bell">Напоминание</button>
+        <button class="b-tool" aria-pressed="false" data-tool="doc">Документ</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. До и после -->
+<section class="sec sec-paper" id="why">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Когда бизнес перерос таблицы, а готовая CRM ему тесна</h2>
+      <p class="lead">Обычно к нам приходят в одной из двух ситуаций: учёт расползся по файлам и чатам или купленная система не умеет того, что нужно именно вам.</p>
+    </div>
+    <div class="ba">
+      <div class="ba-col ba-before">
+        <div class="ba-pic" aria-hidden="true">
+          <span class="sheet">Клиенты_новый (2).xlsx</span>
+          <span class="sheet">Заявки — копия Иры</span>
+          <span class="sheet">Чат «Склад СРОЧНО»</span>
+          <span class="sheet">Счёт_финал_точно.doc</span>
+          <span class="sheet">Блокнот менеджера</span>
+        </div>
+        <button class="btn btn-sm btn-ghost tidy-btn" type="button" id="tidy" aria-pressed="false">Навести порядок</button>
+        <p class="tidy-note hidden" id="tidy-note">Уже лучше. Но это всё ещё пять файлов — настоящий порядок справа.</p>
+        <h3>Как сейчас</h3>
+        <ul class="ba-list">
+          <li>Данные о клиентах живут в пяти местах, и везде разные</li>
+          <li>Отчёт для руководителя собирают вручную полдня, и цифры всё равно не сходятся</li>
+          <li>Заявки теряются между отделами, сроки срываются</li>
+          <li>Доработка коробочной CRM стоит как вторая система</li>
+          <li>Самописную программу понимает только её автор, а он в отпуске</li>
+        </ul>
+      </div>
+      <div class="ba-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="#15123A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="ba-col ba-after">
+        <div class="neat" aria-hidden="true">
+          <div>Клиенты</div><div>Заявки</div><div>Склад</div><div>Отчёты</div><div>Документы</div>
+        </div>
+        <h3>После внедрения</h3>
+        <ul class="ba-list">
+          <li>Одна база: клиенты, сделки, заказы и документы связаны между собой</li>
+          <li>Отчёты считаются сами и открываются с любого устройства</li>
+          <li>Напоминания и статусы не дают заявке зависнуть</li>
+          <li>Новый процесс добавляется настройкой, а не переписыванием кода</li>
+          <li>Система работает на платформе с поддержкой вендора</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. Услуги -->
+<section class="sec" id="services">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Что мы делаем</h2>
+      <p class="lead">Берём проект целиком или подключаемся на отдельный этап — от одной печатной формы до системы для всей компании.</p>
+    </div>
+    <div class="svc">
+      <article class="svc-item big">
+        <svg class="ico"><use href="#i-config"/></svg>
+        <h3>Внедрение готовой конфигурации</h3>
+        <p>Подбираем решение из каталога Платформы КБ под вашу отрасль, убираем лишнее, добавляем недостающее, загружаем данные и обучаем сотрудников. Быстрый способ начать работать в системе.</p>
+        <p class="price">Среднее внедрение — 350 000 ₽</p>
+      </article>
+      <article class="svc-item big alt">
+        <svg class="ico"><use href="#i-custom"/></svg>
+        <h3>Персональная конфигурация под ключ</h3>
+        <p>Изучаем ваши процессы, составляем ТЗ и собираем систему с нуля: структура данных, роли, автоматизация, отчёты, документы. Подходит, когда типовые решения не описывают ваш бизнес.</p>
+        <p class="price">Разработка от 100 000 ₽</p>
+      </article>
+      <article class="svc-item">
+        <svg class="ico"><use href="#i-tune"/></svg>
+        <h3>Доработка действующей системы</h3>
+        <p>Уже работаете на КБ? Добавим таблицы, поля, вычисления и действия, наведём порядок в правах и ускорим то, что тормозит.</p>
+      </article>
+      <article class="svc-item">
+        <svg class="ico"><use href="#i-link"/></svg>
+        <h3>Интеграции</h3>
+        <p>Свяжем систему с сайтом, телефонией, почтой, учётными программами и другими сервисами через API и внешние формы.</p>
+      </article>
+      <article class="svc-item">
+        <svg class="ico"><use href="#i-report"/></svg>
+        <h3>Отчёты и аналитика</h3>
+        <p>Сводные отчёты, графики и показатели для руководителя: продажи, загрузка, остатки, деньги — в одном окне.</p>
+      </article>
+      <article class="svc-item">
+        <svg class="ico"><use href="#i-move"/></svg>
+        <h3>Перенос данных</h3>
+        <p>Аккуратно переносим клиентов, сделки и справочники из Excel и других программ, чистим дубли и ошибки.</p>
+      </article>
+      <article class="svc-item">
+        <svg class="ico"><use href="#i-teach"/></svg>
+        <h3>Обучение и документация</h3>
+        <p>Показываем сотрудникам работу на их же задачах, оставляем инструкции и видео, чтобы новички входили быстро.</p>
+      </article>
+      <article class="svc-item">
+        <svg class="ico"><use href="#i-support"/></svg>
+        <h3>Сопровождение</h3>
+        <p>Остаёмся на связи после запуска: правим, дополняем и развиваем систему вместе с вашим бизнесом.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 4. Что настраиваем -->
+<section class="sec sec-paper" id="caps">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Из чего собирается ваша система</h2>
+      <p class="lead">Платформа КБ — конструктор CRM и учётных систем. Мы знаем каждый его блок и собираем из них решение под задачу.</p>
+    </div>
+    <div class="caps">
+      <div class="cap"><svg class="ico"><use href="#i-table"/></svg><h3>Таблицы и поля</h3><p>Структура данных под ваши сущности: клиенты, заказы, объекты, договоры.</p></div>
+      <div class="cap"><svg class="ico"><use href="#i-fx"/></svg><h3>Вычисления</h3><p>Суммы, сроки, статусы и проверки считаются автоматически.</p></div>
+      <div class="cap"><svg class="ico"><use href="#i-action"/></svg><h3>Дополнительные действия</h3><p>Кнопки, которые за один клик делают то, на что уходило десять.</p></div>
+      <div class="cap"><svg class="ico"><use href="#i-report"/></svg><h3>Отчёты и графики</h3><p>Ключевые показатели компании без ручного сведения.</p></div>
+      <div class="cap"><svg class="ico"><use href="#i-doc"/></svg><h3>Печатные формы</h3><p>Счета, договоры, акты и КП заполняются данными из карточки.</p></div>
+      <div class="cap"><svg class="ico"><use href="#i-bell"/></svg><h3>Напоминания</h3><p>Система сама подскажет, кому и когда пора действовать.</p></div>
+      <div class="cap"><svg class="ico"><use href="#i-lock"/></svg><h3>Права доступа</h3><p>Каждая группа видит и меняет только то, что ей положено.</p></div>
+      <div class="cap"><svg class="ico"><use href="#i-form"/></svg><h3>Внешние формы</h3><p>Заявки с сайта и анкеты попадают сразу в нужную таблицу.</p></div>
+      <div class="cap"><svg class="ico"><use href="#i-mail"/></svg><h3>Рассылки</h3><p>Шаблоны писем и сообщений с подстановкой данных клиента.</p></div>
+      <div class="cap"><svg class="ico"><use href="#i-phone"/></svg><h3>Телефония</h3><p>Звонки привязаны к клиенту, история разговоров под рукой.</p></div>
+      <div class="cap"><svg class="ico"><use href="#i-api"/></svg><h3>API и обмен данными</h3><p>Связь с сайтом, учётными программами и вашими сервисами.</p></div>
+      <div class="cap"><svg class="ico"><use href="#i-filter"/></svg><h3>Фильтры и подсветка</h3><p>Нужные записи находятся за секунды, важное выделено цветом.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. Сравнение -->
+<section class="sec sec-blue" id="compare">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Три способа получить CRM</h2>
+      <p class="lead">Конфигурация на платформе берёт гибкость у заказной разработки, а скорость и поддержку — у готовых продуктов.</p>
+    </div>
+    <div class="cmp-scroll">
+      <table class="cmp">
+        <thead><tr><th></th><th>Коробочная CRM</th><th>Разработка с нуля</th><th class="us">Конфигурация на Платформе КБ</th></tr></thead>
+        <tbody>
+          <tr><th>Запуск</th><td>Быстро, но в рамках типовых сценариев</td><td>Долго: проектирование, код, отладка</td><td class="us">Поэтапно, первые разделы — в работе уже в начале проекта</td></tr>
+          <tr><th>Соответствие процессам</th><td>Бизнес подстраивается под программу</td><td>Полное, если хватит бюджета</td><td class="us">Система повторяет ваши процессы</td></tr>
+          <tr><th>Изменения после запуска</th><td>Только то, что предусмотрел вендор</td><td>Каждая правка — задача программисту</td><td class="us">Настройкой, часто в тот же день</td></tr>
+          <tr><th>Зависимость от исполнителя</th><td>Низкая</td><td>Высокая: код знает только автор</td><td class="us">Низкая: конфигурацию может вести любой специалист по КБ</td></tr>
+          <tr><th>Поддержка и обновления</th><td>От вендора</td><td>За ваш счёт</td><td class="us">Платформу развивает вендор, конфигурацию ведём мы</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="cmp-note">На Платформе КБ собирают не только CRM: склад, производство, проекты, заявки и сервис работают в одной системе и на общих данных.</p>
+  </div>
+</section>
+
+<!-- 6. Этапы -->
+<section class="sec" id="process">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Как проходит проект</h2>
+      <p class="lead">Проект идёт по этапам, как сделка по воронке в вашей будущей CRM. Передвиньте карточку и посмотрите, что происходит на каждом.</p>
+    </div>
+    <div class="pipe" id="pipe">
+      <div class="pipe-stages" role="tablist" aria-label="Этапы проекта">
+        <button class="pipe-stage" role="tab" id="ps0" aria-controls="pp0" aria-selected="true" data-i="0"><span>1</span>Знакомство с задачей</button>
+        <button class="pipe-stage" role="tab" id="ps1" aria-controls="pp1" aria-selected="false" data-i="1"><span>2</span>ТЗ и смета</button>
+        <button class="pipe-stage" role="tab" id="ps2" aria-controls="pp2" aria-selected="false" data-i="2"><span>3</span>Прототип</button>
+        <button class="pipe-stage" role="tab" id="ps3" aria-controls="pp3" aria-selected="false" data-i="3"><span>4</span>Настройка и интеграции</button>
+        <button class="pipe-stage" role="tab" id="ps4" aria-controls="pp4" aria-selected="false" data-i="4"><span>5</span>Проверка и обучение</button>
+        <button class="pipe-stage" role="tab" id="ps5" aria-controls="pp5" aria-selected="false" data-i="5"><span>6</span>Запуск и развитие</button>
+      </div>
+      <div class="pipe-track" aria-hidden="true"><div class="pipe-card" id="pipe-card"><b>Ваш проект</b><span id="pipe-res">Понимание задачи и первые идеи</span></div></div>
+      <div class="pipe-panel" role="tabpanel" id="pp0" aria-labelledby="ps0" data-res="Понимание задачи и первые идеи"><h3>Знакомство с задачей</h3><p>Созваниваемся, разбираем, как устроена работа сейчас и что должно измениться. Первая консультация бесплатна.</p></div>
+      <div class="pipe-panel hidden" role="tabpanel" id="pp1" aria-labelledby="ps1" data-res="ТЗ и смета с ценой"><h3>ТЗ и смета</h3><p>Описываем состав системы простым языком и фиксируем стоимость и порядок работ до старта.</p></div>
+      <div class="pipe-panel hidden" role="tabpanel" id="pp2" aria-labelledby="ps2" data-res="Рабочий прототип"><h3>Прототип</h3><p>Собираем основу системы, чтобы вы посмотрели её вживую и поправили курс, пока это дёшево.</p></div>
+      <div class="pipe-panel hidden" role="tabpanel" id="pp3" aria-labelledby="ps3" data-res="Настроенная система"><h3>Настройка и интеграции</h3><p>Строим таблицы, автоматизацию, отчёты и документы. Крупные проекты сдаём частями.</p></div>
+      <div class="pipe-panel hidden" role="tabpanel" id="pp4" aria-labelledby="ps4" data-res="Команда умеет работать"><h3>Проверка и обучение</h3><p>Вы тестируете систему на реальных задачах, мы исправляем замечания и обучаем команду.</p></div>
+      <div class="pipe-panel hidden" role="tabpanel" id="pp5" aria-labelledby="ps5" data-res="Система в работе"><h3>Запуск и развитие</h3><p>Переносим данные, запускаем в работу и остаёмся рядом: дорабатываем по мере роста бизнеса.</p></div>
+      <div class="pipe-nav"><button class="btn btn-sm btn-ghost" type="button" id="pipe-prev">Назад</button><button class="btn btn-sm" type="button" id="pipe-next">Следующий этап</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- Подбор формата -->
+<section class="sec sec-paper" id="pick">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Соберите карточку своего проекта</h2>
+      <p class="lead">Три ответа — и станет понятно, какой формат работы вам подходит и с чего мы начнём.</p>
+    </div>
+    <div class="pick">
+      <div class="pick-q">
+        <fieldset data-q="src"><legend>Где сейчас ведёте учёт</legend>
+          <button type="button" class="opt" data-v="excel">Excel и мессенджеры</button>
+          <button type="button" class="opt" data-v="crm">Готовая CRM, но её не хватает</button>
+          <button type="button" class="opt" data-v="kb">Уже работаем на Платформе КБ</button>
+          <button type="button" class="opt" data-v="own">Самописная программа</button>
+        </fieldset>
+        <fieldset data-q="team"><legend>Сколько человек будет работать в системе</legend>
+          <button type="button" class="opt" data-v="s">До 10</button>
+          <button type="button" class="opt" data-v="m">От 10 до 50</button>
+          <button type="button" class="opt" data-v="l">Больше 50</button>
+        </fieldset>
+        <fieldset data-q="areas" data-multi><legend>Что нужно в первую очередь <small>можно несколько</small></legend>
+          <button type="button" class="opt" data-v="Продажи и клиенты">Продажи и клиенты</button>
+          <button type="button" class="opt" data-v="Склад и закупки">Склад и закупки</button>
+          <button type="button" class="opt" data-v="Производство и заказы">Производство и заказы</button>
+          <button type="button" class="opt" data-v="Проекты и задачи">Проекты и задачи</button>
+          <button type="button" class="opt" data-v="Документы и отчёты">Документы и отчёты</button>
+        </fieldset>
+      </div>
+      <aside class="rec" aria-live="polite">
+        <div class="rec-bar"><span>Карточка проекта</span><i id="rec-fill">заполнено 0 из 3</i></div>
+        <dl>
+          <div><dt>Учёт сейчас</dt><dd id="rec-src" class="empty">не выбрано</dd></div>
+          <div><dt>Команда</dt><dd id="rec-team" class="empty">не выбрано</dd></div>
+          <div><dt>Разделы</dt><dd id="rec-areas" class="empty">не выбрано</dd></div>
+          <div class="rec-out"><dt>Подходящий формат</dt><dd id="rec-format" class="empty">появится после трёх ответов</dd></div>
+          <div class="rec-out"><dt>С чего начнём</dt><dd id="rec-plan" class="empty">появится после трёх ответов</dd></div>
+          <div class="rec-out"><dt>Ориентир по цене</dt><dd id="rec-price" class="empty">появится после трёх ответов</dd></div>
+        </dl>
+        <a class="btn btn-blue" href="#lead" id="rec-send" aria-disabled="true">Отправить карточку на оценку</a>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- 7. Цены и калькулятор -->
+<section class="sec" id="price">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Сколько это стоит</h2>
+      <p class="lead">Разработка конфигурации — от 100 000 ₽, среднее внедрение обходится в 350 000 ₽. Отметьте нужные работы, чтобы прикинуть свой проект.</p>
+    </div>
+    <div class="calc">
+      <div class="calc-list" id="calc-list"></div>
+      <aside class="calc-sum" aria-live="polite">
+        <p>Предварительная оценка</p>
+        <div class="n" id="calc-total">от 0 ₽</div>
+        <ul id="calc-picked"></ul>
+        <p id="calc-hint">Пока 0 ₽: выгодно, но и системы нет. Выберите работы слева — сумма посчитается сама.</p>
+        <a class="btn btn-lemon" href="#lead" id="calc-send">Отправить расчёт на оценку</a>
+      </aside>
+    </div>
+    <p class="terms">Цены указаны в рублях, носят справочный характер и не являются публичной офертой. Состав работ, сроки, порядок оплаты и приёмки фиксируются в договоре. Претензии принимаются по адресу info@nocodecrm.ru.</p>
+  </div>
+</section>
+
+<!-- 8. Отрасли -->
+<section class="sec sec-paper" id="inds">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Кому подходит</h2>
+      <p class="lead">Компаниям, у которых есть свои правила работы и нет желания ломать их ради программы.</p>
+    </div>
+    <div class="inds">
+      <div class="ind"><h3>Производство</h3><p>Заказ от заявки до отгрузки: этапы, загрузка, сроки, себестоимость.</p><ul><li>Заказы</li><li>Этапы</li><li>Материалы</li></ul></div>
+      <div class="ind"><h3>Торговля и склад</h3><p>Остатки, резервы, закупки и счета в одной базе с клиентами.</p><ul><li>Остатки</li><li>Прайс-листы</li><li>Счета</li></ul></div>
+      <div class="ind"><h3>Услуги и сервис</h3><p>Заявки, выезды, договоры и повторные обращения без потерь.</p><ul><li>Заявки</li><li>График</li><li>Акты</li></ul></div>
+      <div class="ind"><h3>Строительство и ремонт</h3><p>Объекты, сметы, подрядчики и контроль сроков по этапам.</p><ul><li>Объекты</li><li>Сметы</li><li>Подрядчики</li></ul></div>
+      <div class="ind"><h3>Обучение</h3><p>Ученики, группы, расписание, оплаты и посещаемость.</p><ul><li>Группы</li><li>Расписание</li><li>Оплаты</li></ul></div>
+      <div class="ind"><h3>Логистика</h3><p>Рейсы, заявки на перевозку, документы и расчёты с перевозчиками.</p><ul><li>Рейсы</li><li>Заявки</li><li>Документы</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. Вопросы -->
+<section class="sec" id="faq">
+  <div class="wrap">
+    <div class="sec-head"><h2>Частые вопросы</h2></div>
+    <div class="faq">
+      <details><summary>А можно просто остаться в Excel?</summary><p>Можно. Excel — отличная программа, пока файл один, а человек, который помнит, что на каком листе, не ушёл в отпуск. Когда файлов становится пять, а версий «финал» — три, обычно приходят к нам.</p></details>
+      <details><summary>От чего зависит стоимость проекта?</summary><p>От количества таблиц, отчётов, документов, интеграций и от того, насколько описаны ваши процессы. Разработка начинается от 100 000 ₽, среднее внедрение стоит 350 000 ₽. Итоговую сумму фиксируем в смете до начала работ.</p></details>
+      <details><summary>Сколько времени занимает внедрение?</summary><p>Готовая конфигурация запускается быстрее всего. Персональный проект идёт поэтапно: вы начинаете пользоваться первыми разделами, пока мы настраиваем следующие. Срок по вашему проекту назовём после разбора задачи.</p></details>
+      <details><summary>Лицензия Платформы КБ входит в стоимость?</summary><p>Нет, аренда или лицензия платформы оплачивается отдельно по тарифам вендора. Поможем выбрать вариант — облако или установка на ваш сервер — и не переплатить.</p></details>
+      <details><summary>У нас уже есть КБ. Вы возьмёте доработку?</summary><p>Да. Изучим текущую конфигурацию, предложим, что улучшить, и сделаем нужные доработки — от одного отчёта до перестройки структуры.</p></details>
+      <details><summary>Можно ли автоматизировать не только продажи?</summary><p>Да. CRM — лишь одна из конфигураций. На платформе собирают склад, производство, управление проектами, учёт заявок и документов.</p></details>
+      <details><summary>Что будет, если наши процессы изменятся?</summary><p>Конфигурация меняется настройкой. Присылаете задачу — мы добавляем поля, статусы, отчёты или новый раздел, не останавливая работу системы.</p></details>
+      <details><summary>Перенесёте данные из Excel или другой CRM?</summary><p>Да. Импортируем клиентов, сделки, товары и справочники, по дороге убираем дубли и приводим данные к единому виду.</p></details>
+      <details><summary>Что останется у нас, если мы перестанем с вами работать?</summary><p>Система и все данные остаются у вас. Конфигурацию на Платформе КБ может вести ваш сотрудник или другой специалист — вы не привязаны к одному исполнителю.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- 10. Заявка -->
+<section class="sec sec-lemon" id="lead">
+  <div class="wrap lead-grid">
+    <div class="lead-copy">
+      <h2>Расскажите о задаче — вернёмся с оценкой</h2>
+      <p class="lead">Опишите в двух словах, что хотите автоматизировать. Зададим уточняющие вопросы и пришлём предварительную смету.</p>
+      <ul class="lead-points">
+        <li>Первая консультация бесплатна</li>
+        <li>Смета и состав работ до оплаты</li>
+        <li>Работаем по договору</li>
+      </ul>
+      <p>Или напишите нам: <a href="mailto:info@nocodecrm.ru"><b>info@nocodecrm.ru</b></a></p>
+    </div>
+    <form class="form" id="lead-form" action="send.php" method="post" novalidate>
+      <div class="field"><label for="f-name">Как к вам обращаться</label><input id="f-name" name="name" autocomplete="name" required></div>
+      <div class="field"><label for="f-contact">Телефон или электронная почта</label><input id="f-contact" name="contact" autocomplete="tel" required></div>
+      <div class="field"><label for="f-msg">Что нужно сделать</label><textarea id="f-msg" name="message" placeholder="Например: ведём заказы в Excel, файл уже открывается минуту. Нужна система для продаж и склада на 12 человек"></textarea></div>
+      <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input type="hidden" name="form_name" value="Заявка на расчёт">
+      <input type="hidden" name="consent_version" value="2026-11-12">
+      <input type="hidden" name="page_url" id="f-page" value="">
+      <label class="agree"><input type="checkbox" name="agree" id="f-agree" value="1" required><span>Я даю <a href="consent.html" target="_blank" rel="noopener">согласие на обработку персональных данных</a> и ознакомлен с <a href="privacy.html" target="_blank" rel="noopener">политикой обработки персональных данных</a>.</span></label>
+      <label class="agree"><input type="checkbox" name="ads" id="f-ads" value="1"><span>Согласен получать рекламные и информационные сообщения ИП Гарифуллина М. М. — <a href="consent-ads.html" target="_blank" rel="noopener">условия</a>. Отказаться можно в любой момент. Необязательно.</span></label>
+      <button class="btn btn-blue" type="submit" id="f-submit" disabled>Отправить заявку</button>
+      <div class="form-msg hidden" id="form-msg" role="status"></div>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<a class="mcta" href="#lead" id="mcta">Обсудить задачу</a>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="logo" href="index.html#top"><svg viewBox="0 0 34 34" aria-hidden="true"><rect width="34" height="34" rx="7"/><path d="M8 8h6l6 9V8h6v18h-6l-6-9v9H8z"/></svg><span>NoCodeCRM</span></a>
+        <p>Внедрение конфигураций и доработка Платформы КБ. Партнёр Платформы КБ.</p>
+      </div>
+      <div>
+        <h3>Разделы</h3>
+        <ul><li><a href="index.html#services">Услуги</a></li><li><a href="index.html#process">Как работаем</a></li><li><a href="index.html#price">Цены</a></li><li><a href="index.html#faq">Вопросы</a></li></ul>
+      </div>
+      <div>
+        <h3>Владелец сайта</h3>
+        <ul>
+          <li>Индивидуальный предприниматель Гарифуллин Марат Мидхатович</li>
+          <li>ИНН 165700291820, ОГРНИП 304165736000155</li>
+          <li>420044, Республика Татарстан, г. Казань, пр-кт Ямашева, д. 36, офис 327</li>
+          <li><a href="mailto:info@nocodecrm.ru">info@nocodecrm.ru</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-low">
+      <span>© 2026 ИП Гарифуллин Марат Мидхатович</span>
+      <a href="privacy.html" target="_blank" rel="noopener">Политика обработки персональных данных</a>
+      <a href="consent.html" target="_blank" rel="noopener">Согласие на обработку персональных данных</a>
+      <a href="consent-ads.html" target="_blank" rel="noopener">Согласие на получение рекламы</a>
+      <button type="button" class="linkbtn hidden" id="cookie-open">Файлы cookie</button>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/cookie.js" defer></script>
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>

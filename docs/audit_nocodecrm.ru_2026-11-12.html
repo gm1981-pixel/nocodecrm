@@ -1,0 +1,613 @@
+<!doctype html>
+<html lang="ru">
+<meta charset="utf-8">
+<title>Аудит nocodecrm.ru — 12.11.2026</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root{--bg:#fff;--fg:#1a1a1a;--muted:#666;--line:#e3e3e3;--card:#fafafa;
+        --p0:#c0392b;--p1:#b8860b;--p2:#2e7d52;--code:#f4f4f4}
+  @media (prefers-color-scheme:dark){
+    :root{--bg:#161616;--fg:#e8e8e8;--muted:#9a9a9a;--line:#2c2c2c;--card:#1e1e1e;
+          --p0:#ff6b5a;--p1:#e0b050;--p2:#5fc48a;--code:#222}}
+  *{box-sizing:border-box}
+  body{margin:0;padding:24px 16px 64px;background:var(--bg);color:var(--fg);
+       font:15px/1.55 -apple-system,Segoe UI,Roboto,sans-serif;max-width:920px;margin-inline:auto}
+  h1{font-size:22px;margin:0 0 4px}
+  .meta{color:var(--muted);font-size:13px;margin-bottom:20px}
+  .meta b{color:var(--fg);font-weight:600}
+  .bar{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 20px;position:sticky;top:0;
+       background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:2}
+  .chip{border:1px solid var(--line);background:var(--card);color:var(--fg);border-radius:999px;
+        padding:5px 12px;font-size:13px;cursor:pointer}
+  .chip[aria-pressed=true]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+  .item{border:1px solid var(--line);border-radius:10px;margin-bottom:10px;background:var(--card);overflow:hidden}
+  .item>summary{cursor:pointer;padding:12px 14px;display:flex;gap:10px;align-items:baseline;list-style:none}
+  .item>summary::-webkit-details-marker{display:none}
+  .item>summary::before{content:'▸';color:var(--muted);flex:none}
+  .item[open]>summary::before{content:'▾'}
+  .id{font-weight:700;font-variant-numeric:tabular-nums;flex:none}
+  .name{flex:1}
+  .tag{font-size:12px;padding:2px 8px;border-radius:999px;border:1px solid currentColor;flex:none}
+  .p0{color:var(--p0)}.p1{color:var(--p1)}.p2{color:var(--p2)}
+  .st{font-size:12px;padding:2px 8px;border-radius:999px;flex:none;background:var(--bg);border:1px solid var(--line)}
+  .body{padding:0 14px 12px}
+  .sub{border-top:1px solid var(--line);padding:8px 0}
+  .sub>summary{cursor:pointer;font-size:13px;color:var(--muted)}
+  .sub p,.sub ul{margin:8px 0 0}
+  code,.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;
+        background:var(--code);padding:1px 5px;border-radius:4px;word-break:break-all}
+  .hide{display:none}
+  footer{color:var(--muted);font-size:12px;margin-top:28px}
+</style>
+
+<h1>Аудит nocodecrm.ru</h1>
+<div class="meta">
+  Проверено 12.11.2026 · Индивидуальный предприниматель Гарифуллин Марат Мидхатович, ИНН 165700291820 · режим: анализ и правка<br>
+  Источник: файлы сайта · снимок: 12 файлов, sha256 8964563a062a452d452d36db786f6f1fc828de51aa9952cce00290a2582804fb<br>
+  Нарушений <b>2</b>, частично <b>5</b>, рисков <b>4</b>,
+  требует данных <b>7</b>, в порядке <b>6</b>
+</div>
+
+<div class="bar">
+  <button class="chip" data-f="all" aria-pressed="true">Все</button>
+  <button class="chip" data-f="Нарушение" aria-pressed="false">Нарушения</button>
+  <button class="chip" data-f="Частично" aria-pressed="false">Частично</button>
+  <button class="chip" data-f="Риск" aria-pressed="false">Риски</button>
+  <button class="chip" data-f="Требует данных" aria-pressed="false">Требует данных</button>
+  <button class="chip" data-f="P0" aria-pressed="false">P0</button>
+  <button class="chip" data-f="открыть" aria-pressed="false">Развернуть всё</button>
+</div>
+
+<details class="item" data-status="OK" data-prio="P0">
+  <summary>
+    <span class="id">CL-01</span>
+    <span class="name">На сайте нет упоминаний, логотипов, иконок и ссылок Instagram, Facebook и Meta — ни видимых, ни скрытых, ни закомментированных</span>
+    <span class="tag p0">P0</span>
+    <span class="st">OK</span>
+  </summary>
+  <div class="body">
+    <details class="sub" open><summary>Что найдено</summary><p>Поиск по всем файлам (instagram, facebook, fb.com, fbcdn, meta.com и др.) — вхождений нет, в том числе в комментариях и SVG.</p></details>
+    <details class="sub" open><summary>Где</summary><p class="mono">все 12 файлов снимка</p></details>
+    <details class="sub"><summary>Видимое или скрытое</summary><p>не применимо</p></details>
+    <details class="sub"><summary>Норма и штраф</summary>
+      <p>КоАП ст. 20.3 ч. 1</p>
+      <p>КоАП ст. 20.3 ч. 1: запрещено публичное демонстрирование символики экстремистских организаций. Meta признана экстремистской, её символика — логотипы и иконки Instagram и Facebook — под запретом.</p>
+      <p><b>Штраф:</b> Юрлицо 10–50 тыс. ₽ с конфискацией; должностное 1–4 тыс. ₽</p></details>
+  </div>
+</details>
+<details class="item" data-status="OK" data-prio="P0">
+  <summary>
+    <span class="id">CL-02</span>
+    <span class="name">На страницах нет иностранных счётчиков, пикселей, капч, карт и CDN, передающих данные посетителей за рубеж</span>
+    <span class="tag p0">P0</span>
+    <span class="st">OK</span>
+  </summary>
+  <div class="body">
+    <details class="sub" open><summary>Что найдено</summary><p>Внешних скриптов, шрифтов, карт и счётчиков нет. Шрифты подключены локально: <code>src:url("../fonts/unbounded-cyrillic-wght-normal.woff2")</code>.</p></details>
+    <details class="sub" open><summary>Где</summary><p class="mono">assets/css/style.css, строки 5–8; index.html</p></details>
+    <details class="sub"><summary>Видимое или скрытое</summary><p>не применимо</p></details>
+    <details class="sub"><summary>Зачем менять</summary><p>После правок: OK. После включения Метрики единственный внешний адрес — mc.yandex.ru, российский сервис.</p></details>
+    <details class="sub"><summary>Норма и штраф</summary>
+      <p>152-ФЗ ст. 12, ст. 18 ч. 5</p>
+      <p>152-ФЗ ст. 18 ч. 5: база с данными россиян должна находиться в России. Ст. 12: трансграничная передача допускается при соблюдении условий и после уведомления Роскомнадзора. Иностранный счётчик передаёт данные посетителя за рубеж без того и другого.</p>
+      <p><b>Штраф:</b> Ч. 8 ст. 13.11 КоАП: 1–6 млн ₽; повторно 6–18 млн ₽</p></details>
+  </div>
+</details>
+<details class="item" data-status="Частично" data-prio="P0">
+  <summary>
+    <span class="id">CL-03</span>
+    <span class="name">Опубликована политика обработки персональных данных с полным составом сведений</span>
+    <span class="tag p0">P0</span>
+    <span class="st">Частично</span>
+  </summary>
+  <div class="body">
+    <details class="sub" open><summary>Что найдено</summary><p>Политика опубликована, но это шаблон с пустыми местами: <code>ИНН &lt;mark&gt;указать&lt;/mark&gt;, ОГРНИП &lt;mark&gt;указать&lt;/mark&gt;</code>, срок хранения «указать срок», дата «указать». Нет таблицы целей, оснований, раздела о правах в полном составе, перечня обработчиков.</p></details>
+    <details class="sub" open><summary>Где</summary><p class="mono">privacy.html, строки 22, 43, 52</p></details>
+    <details class="sub"><summary>Видимое или скрытое</summary><p>видимое</p></details>
+    <details class="sub"><summary>Зачем менять</summary><p>Сделано: Выпущена политика из шаблона навыка: 8 разделов, реквизиты ИП, сроки, обработчики, cookie. После правок: Частично. Текст полный. Пункты 5.5 (база в России) и 6.1 (меры защиты) должен подтвердить владелец — до этого публиковать нельзя.</p></details>
+    <details class="sub"><summary>Норма и штраф</summary>
+      <p>152-ФЗ ст. 18.1 ч. 2, ст. 14, ст. 5</p>
+      <p>152-ФЗ ст. 18.1 ч. 2: оператор обязан опубликовать документ, определяющий его политику обработки, и сведения о реализуемых требованиях к защите. Ст. 14: субъект вправе знать цели, состав данных, сроки и получателей.</p>
+      <p><b>Штраф:</b> Нет публикации — ч. 3 ст. 13.11 КоАП: 30–60 тыс. ₽. Неполный состав сведений — ч. 1 ст. 13.11: 150–300 тыс. ₽</p></details>
+  </div>
+</details>
+<details class="item" data-status="OK" data-prio="P0">
+  <summary>
+    <span class="id">CL-04</span>
+    <span class="name">Ссылка на политику обработки персональных данных есть на каждой странице</span>
+    <span class="tag p0">P0</span>
+    <span class="st">OK</span>
+  </summary>
+  <div class="body">
+    <details class="sub" open><summary>Что найдено</summary><p>Ссылка есть в подвале и у формы: <code>&lt;a href="privacy.html"&gt;Политика обработки персональных данных&lt;/a&gt;</code>.</p></details>
+    <details class="sub" open><summary>Где</summary><p class="mono">index.html, строки 346 и 378</p></details>
+    <details class="sub"><summary>Видимое или скрытое</summary><p>видимое</p></details>
+    <details class="sub"><summary>Зачем менять</summary><p>Сделано: В подвале ссылка теперь открывается в новой вкладке; тот же подвал добавлен на страницы документов. После правок: OK.</p></details>
+    <details class="sub"><summary>Норма и штраф</summary>
+      <p>152-ФЗ ст. 18.1 ч. 2</p>
+      <p>152-ФЗ ст. 18.1 ч. 2: политика должна быть доступна неограниченному кругу лиц, а при сборе данных через сайт — опубликована на странице сбора.</p>
+      <p><b>Штраф:</b> Ч. 3 ст. 13.11 КоАП: 30–60 тыс. ₽</p></details>
+  </div>
+</details>
+<details class="item" data-status="Нарушение" data-prio="P0">
+  <summary>
+    <span class="id">CL-05</span>
+    <span class="name">Опубликован текст согласия на обработку персональных данных — отдельный документ, не совмещённый с офертой</span>
+    <span class="tag p0">P0</span>
+    <span class="st">Нарушение</span>
+  </summary>
+  <div class="body">
+    <details class="sub" open><summary>Что найдено</summary><p>Отдельного документа «Согласие на обработку персональных данных» нет. Чекбокс формы ссылается только на политику.</p></details>
+    <details class="sub" open><summary>Где</summary><p class="mono">index.html, строка 346; файла consent.html нет</p></details>
+    <details class="sub"><summary>Видимое или скрытое</summary><p>видимое</p></details>
+    <details class="sub"><summary>Зачем менять</summary><p>Сделано: Выпущен consent.html (10 пунктов), ссылка стоит у чекбокса и в подвале. После правок: OK.</p></details>
+    <details class="sub"><summary>Норма и штраф</summary>
+      <p>152-ФЗ ст. 9 ч. 1, ч. 4</p>
+      <p>152-ФЗ ст. 9 ч. 1: согласие даётся конкретное, предметное, информированное, сознательное и однозначное; с 01.09.2025 оформляется отдельно от иных документов. Ч. 4: перечисляет, что в согласии должно быть указано.</p>
+      <p><b>Штраф:</b> Ч. 1 ст. 13.11 КоАП: 150–300 тыс. ₽</p></details>
+  </div>
+</details>
+<details class="item" data-status="Частично" data-prio="P0">
+  <summary>
+    <span class="id">CL-06</span>
+    <span class="name">В каждой форме сбора данных — два отдельных чекбокса: акцепт оферты и согласие на обработку персональных данных</span>
+    <span class="tag p0">P0</span>
+    <span class="st">Частично</span>
+  </summary>
+  <div class="body">
+    <details class="sub" open><summary>Что найдено</summary><p>Чекбокс согласия один, не отмечен по умолчанию — верно. Но кнопка не блокируется: <code>&lt;button class="btn btn-blue" type="submit"&gt;</code> без disabled; текст чекбокса ведёт на политику, а не на согласие. Чекбокса оферты нет, потому что нет оферты.</p></details>
+    <details class="sub" open><summary>Где</summary><p class="mono">index.html, строки 346–347</p></details>
+    <details class="sub"><summary>Видимое или скрытое</summary><p>видимое</p></details>
+    <details class="sub"><summary>Зачем менять</summary><p>Сделано: Кнопка заблокирована до отметки, текст чекбокса по шаблону со ссылками на согласие и политику. После правок: Частично. Чекбокс акцепта оферты не поставлен: подходящей оферты нет (см. CL-12).</p></details>
+    <details class="sub"><summary>Норма и штраф</summary>
+      <p>152-ФЗ ст. 9 ч. 1, ч. 3; ГК РФ ст. 438</p>
+      <p>152-ФЗ ст. 9 ч. 1: согласие выражается отдельным действием и не может быть предустановленным. Ч. 3: доказывать наличие согласия обязан оператор. ГК РФ ст. 438: акцепт оферты — полный и безоговорочный, то есть отдельное действие.</p>
+      <p><b>Штраф:</b> Ч. 1 ст. 13.11 КоАП: 150–300 тыс. ₽</p></details>
+  </div>
+</details>
+<details class="item" data-status="Нарушение" data-prio="P0">
+  <summary>
+    <span class="id">CL-07</span>
+    <span class="name">Согласие на получение рекламных сообщений — отдельным необязательным чекбоксом</span>
+    <span class="tag p0">P0</span>
+    <span class="st">Нарушение</span>
+  </summary>
+  <div class="body">
+    <details class="sub" open><summary>Что найдено</summary><p>Рекламные рассылки планируются по всем каналам (ответ владельца), а отдельного чекбокса согласия на рекламу в форме нет.</p></details>
+    <details class="sub" open><summary>Где</summary><p class="mono">index.html, форма #lead-form</p></details>
+    <details class="sub"><summary>Видимое или скрытое</summary><p>не применимо (элемента нет)</p></details>
+    <details class="sub"><summary>Зачем менять</summary><p>Сделано: Добавлен необязательный неотмеченный чекбокс и документ consent-ads.html; отправку формы он не блокирует. После правок: OK. В каждом сообщении рассылки нужен способ отписаться — это на стороне рассылок.</p></details>
+    <details class="sub"><summary>Норма и штраф</summary>
+      <p>38-ФЗ ст. 18 ч. 1; 149-ФЗ ст. 10 ч. 3</p>
+      <p>38-ФЗ ст. 18 ч. 1: реклама по сетям связи допускается только с предварительного согласия абонента; согласие должно быть доказуемым, а по требованию адресата рассылка прекращается немедленно.</p>
+      <p><b>Штраф:</b> Ч. 4.1 ст. 14.3 КоАП: 300 тыс. – 1 млн ₽ за каждый факт</p></details>
+  </div>
+</details>
+<details class="item" data-status="Частично" data-prio="P0">
+  <summary>
+    <span class="id">CL-08</span>
+    <span class="name">Сведения о владельце сайта указаны на каждой странице</span>
+    <span class="tag p0">P0</span>
+    <span class="st">Частично</span>
+  </summary>
+  <div class="body">
+    <details class="sub" open><summary>Что найдено</summary><p>В подвале есть наименование, адрес и почта, нет ИНН и ОГРНИП: <code>&lt;!-- TODO: добавить ИНН и ОГРНИП --&gt;</code>. Телефона нет.</p></details>
+    <details class="sub" open><summary>Где</summary><p class="mono">index.html, строки 357–377</p></details>
+    <details class="sub"><summary>Видимое или скрытое</summary><p>видимое; пометка TODO — в комментарии</p></details>
+    <details class="sub"><summary>Зачем менять</summary><p>Сделано: В подвал поставлены полное наименование, ИНН 165700291820, ОГРНИП 304165736000155, адрес с индексом, почта. После правок: Частично. Нет телефона — владелец не указал.</p></details>
+    <details class="sub"><summary>Норма и штраф</summary>
+      <p>149-ФЗ ст. 10 ч. 2; ЗоЗПП ст. 9</p>
+      <p>149-ФЗ ст. 10 ч. 2: владелец сайта обязан разместить сведения о себе — наименование, место нахождения, адрес, электронную почту. ЗоЗПП ст. 9: исполнитель доводит до потребителя фирменное наименование и адрес.</p>
+      <p><b>Штраф:</b> Ч. 1 ст. 14.8 КоАП: предупреждение или 5–10 тыс. ₽</p></details>
+  </div>
+</details>
+<details class="item" data-status="Риск" data-prio="P0">
+  <summary>
+    <span class="id">CL-09</span>
+    <span class="name">Оператор, указанный в согласии и в оферте, совпадает с владельцем сайта</span>
+    <span class="tag p0">P0</span>
+    <span class="st">Риск</span>
+  </summary>
+  <div class="body">
+    <details class="sub" open><summary>Что найдено</summary><p>Оператор в политике — ИП Гарифуллин, а заявки уходят на ящик другого юрлица: <code>$TO = 'info@clientbase.ru';</code>. Это передача данных ООО «Клиентская база» без упоминания в документах. ⚖</p></details>
+    <details class="sub" open><summary>Где</summary><p class="mono">send.php, строка 8</p></details>
+    <details class="sub"><summary>Видимое или скрытое</summary><p>скрытое (серверный код)</p></details>
+    <details class="sub"><summary>Зачем менять</summary><p>Сделано: Адрес получателя заменён на info@nocodecrm.ru. ИП указан одинаково в подвале, политике и обоих согласиях. После правок: OK.</p></details>
+    <details class="sub"><summary>Норма и штраф</summary>
+      <p>152-ФЗ ст. 3, ст. 6 ч. 3, ст. 14, ст. 18.1</p>
+      <p>152-ФЗ ст. 6 ч. 3: обработка может быть поручена другому лицу на основании договора; перед субъектом отвечает оператор. Ст. 18.1: распределение ролей должно быть отражено в политике.</p>
+      <p><b>Штраф:</b> Ч. 1 ст. 13.11 КоАП: 150–300 тыс. ₽</p></details>
+  </div>
+</details>
+<details class="item" data-status="OK" data-prio="P0">
+  <summary>
+    <span class="id">CL-10</span>
+    <span class="name">Формы не запрашивают лишних данных и не передают пароли</span>
+    <span class="tag p0">P0</span>
+    <span class="st">OK</span>
+  </summary>
+  <div class="body">
+    <details class="sub" open><summary>Что найдено</summary><p>Поля формы: name, contact, message, agree и скрытая ловушка для ботов website. Паролей, паспортных данных нет.</p></details>
+    <details class="sub" open><summary>Где</summary><p class="mono">index.html, строки 342–346</p></details>
+    <details class="sub"><summary>Видимое или скрытое</summary><p>видимое; поле website скрыто</p></details>
+    <details class="sub"><summary>Зачем менять</summary><p>После правок: OK. Добавлены скрытые служебные поля form_name, consent_version, page_url — персональных данных не содержат.</p></details>
+    <details class="sub"><summary>Норма и штраф</summary>
+      <p>152-ФЗ ст. 5 ч. 5, ст. 19</p>
+      <p>152-ФЗ ст. 5 ч. 5: объём и содержание данных не должны быть избыточными по отношению к заявленным целям. Ст. 19: оператор принимает меры защиты от неправомерного доступа.</p>
+      <p><b>Штраф:</b> При утечке — ч. 11 ст. 13.11 КоАП: 1–3 млн ₽ за неуведомление</p></details>
+  </div>
+</details>
+<details class="item" data-status="OK" data-prio="P0">
+  <summary>
+    <span class="id">CL-11</span>
+    <span class="name">Страница и отправка формы работают по HTTPS</span>
+    <span class="tag p0">P0</span>
+    <span class="st">OK</span>
+  </summary>
+  <div class="body">
+    <details class="sub" open><summary>Что найдено</summary><p>Адресов http:// в коде нет; canonical и og:url — https. Работу сайта по HTTPS на хостинге проверить после публикации.</p></details>
+    <details class="sub" open><summary>Где</summary><p class="mono">все файлы</p></details>
+    <details class="sub"><summary>Видимое или скрытое</summary><p>не применимо</p></details>
+    <details class="sub"><summary>Зачем менять</summary><p>После правок: OK. Проверить сертификат после заливки.</p></details>
+    <details class="sub"><summary>Норма и штраф</summary>
+      <p>152-ФЗ ст. 19</p>
+      <p>152-ФЗ ст. 19: оператор обязан защищать данные при передаче, в том числе от неправомерного доступа. Передача формы по открытому каналу этому не отвечает.</p>
+      <p><b>Штраф:</b> Отдельной санкции нет; учитывается при оценке мер защиты</p></details>
+  </div>
+</details>
+<details class="item" data-status="Требует данных" data-prio="P1">
+  <summary>
+    <span class="id">CL-12</span>
+    <span class="name">Оферта или договор опубликованы в одной действующей редакции</span>
+    <span class="tag p1">P1</span>
+    <span class="st">Требует данных</span>
+  </summary>
+  <div class="body">
+    <details class="sub" open><summary>Что найдено</summary><p>Оферты или типового договора на сайте нет. В шаблонах навыка есть лицензионная, SaaS и партнёрская оферты — к услугам внедрения ни одна не подходит.</p></details>
+    <details class="sub" open><summary>Где</summary><p class="mono">сайт целиком</p></details>
+    <details class="sub"><summary>Видимое или скрытое</summary><p>не применимо</p></details>
+    <details class="sub"><summary>Зачем менять</summary><p>Сделано: Под калькулятором добавлена оговорка, что цены справочные и условия фиксируются в договоре. ⚖ После правок: Требует данных. Нужен договор или оферта на услуги внедрения от ИП — готовит юрист.</p></details>
+    <details class="sub"><summary>Норма и штраф</summary>
+      <p>ГК РФ ст. 435, 437, 438; ЗоЗПП ст. 10</p>
+      <p>ГК РФ ст. 435 и 437: оферта должна содержать существенные условия договора и выражать намерение заключить его на этих условиях. ЗоЗПП ст. 10: информация об услуге доводится своевременно и в доступной форме.</p>
+      <p><b>Штраф:</b> Ч. 2 ст. 14.8 КоАП: 10–20 тыс. ₽ (при ущемлении прав потребителя)</p></details>
+  </div>
+</details>
+<details class="item" data-status="Частично" data-prio="P1">
+  <summary>
+    <span class="id">CL-13</span>
+    <span class="name">Факт согласия фиксируется на сервере</span>
+    <span class="tag p1">P1</span>
+    <span class="st">Частично</span>
+  </summary>
+  <div class="body">
+    <details class="sub" open><summary>Что найдено</summary><p>В письмо пишутся дата, IP и строка «Согласие на обработку ПД: да». Нет редакции текста согласия, адреса страницы, имени формы. Хранилище — только почтовый ящик.</p></details>
+    <details class="sub" open><summary>Где</summary><p class="mono">send.php, строки 38–40</p></details>
+    <details class="sub"><summary>Видимое или скрытое</summary><p>скрытое (серверный код)</p></details>
+    <details class="sub"><summary>Зачем менять</summary><p>Сделано: В форму добавлены скрытые поля с редакцией согласия, адресом страницы и именем формы; send.php пишет в письмо блок «Журнал согласий», включая согласие на рекламу. После правок: Частично. Журнал живёт в письмах. Отметку об отзыве и надёжное хранение даст CRM. Выбор в баннере cookie на сервере не фиксируется.</p></details>
+    <details class="sub"><summary>Норма и штраф</summary>
+      <p>152-ФЗ ст. 9 ч. 3; 38-ФЗ ст. 18 ч. 1</p>
+      <p>152-ФЗ ст. 9 ч. 3: обязанность доказать получение согласия лежит на операторе. 38-ФЗ ст. 18 ч. 1: доказывать согласие на рекламу обязан рекламораспространитель. Без записи о факте и версии текста доказательства нет.</p>
+      <p><b>Штраф:</b> Ч. 1 ст. 13.11 КоАП: 150–300 тыс. ₽ (недоказанное согласие)</p></details>
+  </div>
+</details>
+<details class="item" data-status="Не применимо" data-prio="P1">
+  <summary>
+    <span class="id">CL-14</span>
+    <span class="name">Баннер согласия на cookie есть на всех страницах</span>
+    <span class="tag p1">P1</span>
+    <span class="st">Не применимо</span>
+  </summary>
+  <div class="body">
+    <details class="sub" open><summary>Что найдено</summary><p>Счётчиков и файлов cookie на сайте нет, сайт ничего не пишет в браузер — баннер не требуется.</p></details>
+    <details class="sub" open><summary>Где</summary><p class="mono">index.html, assets/js/main.js</p></details>
+    <details class="sub"><summary>Видимое или скрытое</summary><p>не применимо</p></details>
+    <details class="sub"><summary>Зачем менять</summary><p>Сделано: Подготовлен баннер с равнозначными «Принять» и «Отклонить» и ссылка «Файлы cookie» в подвале. Показывается только после того, как вписан номер счётчика. После правок: Не применимо. Станет применимо, когда включите Метрику; баннер уже готов.</p></details>
+    <details class="sub"><summary>Норма и штраф</summary>
+      <p>152-ФЗ ст. 9 (если cookie позволяют идентифицировать человека)</p>
+      <p>152-ФЗ ст. 9 ч. 1: согласие свободное и однозначное. Если отказаться сложнее, чем согласиться, согласие свободным не считается.</p>
+      <p><b>Штраф:</b> Ч. 1 ст. 13.11 КоАП: 150–300 тыс. ₽</p></details>
+  </div>
+</details>
+<details class="item" data-status="Не применимо" data-prio="P1">
+  <summary>
+    <span class="id">CL-15</span>
+    <span class="name">Счётчики и необязательные cookie запускаются только после согласия</span>
+    <span class="tag p1">P1</span>
+    <span class="st">Не применимо</span>
+  </summary>
+  <div class="body">
+    <details class="sub" open><summary>Что найдено</summary><p>Кода счётчиков нет.</p></details>
+    <details class="sub" open><summary>Где</summary><p class="mono">index.html</p></details>
+    <details class="sub"><summary>Видимое или скрытое</summary><p>не применимо</p></details>
+    <details class="sub"><summary>Зачем менять</summary><p>Сделано: Метрика подключается только по событию согласия. Проверено наблюдением: до нажатия и после «Отклонить» запросов к mc.yandex.ru нет, после «Принять» — есть. После правок: Не применимо.</p></details>
+    <details class="sub"><summary>Норма и штраф</summary>
+      <p>152-ФЗ ст. 6, ст. 9</p>
+      <p>152-ФЗ ст. 6: обработка допускается при наличии основания. Пока согласие не получено и иного основания нет, установка аналитических файлов и запуск счётчика неправомерны.</p>
+      <p><b>Штраф:</b> Ч. 1 ст. 13.11 КоАП: 150–300 тыс. ₽</p></details>
+  </div>
+</details>
+<details class="item" data-status="Не применимо" data-prio="P1">
+  <summary>
+    <span class="id">CL-16</span>
+    <span class="name">Публикация отзывов, историй успеха и фотографий клиентов подкреплена согласием на распространение</span>
+    <span class="tag p1">P1</span>
+    <span class="st">Не применимо</span>
+  </summary>
+  <div class="body">
+    <details class="sub" open><summary>Что найдено</summary><p>Отзывов, кейсов с именами и фотографий людей на сайте нет. Строки таблицы в первом экране («ООО «Вектор»», «ИП Соколова», фамилии ответственных) — вымышленные примеры.</p></details>
+    <details class="sub" open><summary>Где</summary><p class="mono">index.html; assets/js/main.js, объект DATA</p></details>
+    <details class="sub"><summary>Видимое или скрытое</summary><p>видимое</p></details>
+    <details class="sub"><summary>Зачем менять</summary><p>После правок: Не применимо. Если совпадение с реальными лицами нежелательно — замените примеры.</p></details>
+    <details class="sub"><summary>Норма и штраф</summary>
+      <p>152-ФЗ ст. 10.1; ГК РФ ст. 152.1</p>
+      <p>152-ФЗ ст. 10.1: распространение данных допускается только с отдельного согласия; молчание или бездействие согласием не является. ГК РФ ст. 152.1: обнародование изображения гражданина — с его согласия.</p>
+      <p><b>Штраф:</b> Ч. 1 ст. 13.11 КоАП: 150–300 тыс. ₽</p></details>
+  </div>
+</details>
+<details class="item" data-status="Риск" data-prio="P1">
+  <summary>
+    <span class="id">CL-17</span>
+    <span class="name">Числовые утверждения и превосходные степени подтверждены или снабжены пояснением</span>
+    <span class="tag p1">P1</span>
+    <span class="st">Риск</span>
+  </summary>
+  <div class="body">
+    <details class="sub" open><summary>Что найдено</summary><p>Числовые и оценочные утверждения без источника: «Среднее внедрение — 350 000 ₽», «Проекты от 100 000 ₽», «Самый быстрый способ начать работать в системе», «Настройкой, часто в тот же день», «находятся за секунды», «Партнёр Платформы КБ». ⚖</p></details>
+    <details class="sub" open><summary>Где</summary><p class="mono">index.html, строки 73, 81–82, 165–166, 227, 245</p></details>
+    <details class="sub"><summary>Видимое или скрытое</summary><p>видимое</p></details>
+    <details class="sub"><summary>Зачем менять</summary><p>Сделано: Превосходная степень убрана: «Быстрый способ начать работать в системе». Цифры не менялись. После правок: Риск. Нужно основание для «среднее внедрение 350 000 ₽» (за какой период посчитано) и подтверждение партнёрского статуса.</p></details>
+    <details class="sub"><summary>Норма и штраф</summary>
+      <p>38-ФЗ ст. 5 ч. 3</p>
+      <p>38-ФЗ ст. 5 ч. 3: недостоверной признаётся реклама со сведениями о преимуществах, характеристиках и результатах, не соответствующих действительности. Подтверждать достоверность обязан рекламодатель.</p>
+      <p><b>Штраф:</b> Ч. 1 ст. 14.3 КоАП: 100–500 тыс. ₽</p></details>
+  </div>
+</details>
+<details class="item" data-status="Требует данных" data-prio="P1">
+  <summary>
+    <span class="id">CL-18</span>
+    <span class="name">Домен, хостинг и база данных соответствуют требованиям к размещению в России</span>
+    <span class="tag p1">P1</span>
+    <span class="st">Требует данных</span>
+  </summary>
+  <div class="body">
+    <details class="sub" open><summary>Что найдено</summary><p>Хостинг, регистратор домена и место хранения почты неизвестны — сайт ещё не опубликован.</p></details>
+    <details class="sub" open><summary>Где</summary><p class="mono">—</p></details>
+    <details class="sub"><summary>Видимое или скрытое</summary><p>не применимо</p></details>
+    <details class="sub"><summary>Зачем менять</summary><p>После правок: Требует данных. Хостер из реестра Роскомнадзора, серверы и почта в России.</p></details>
+    <details class="sub"><summary>Норма и штраф</summary>
+      <p>152-ФЗ ст. 18 ч. 5, ст. 12 ч. 3; 149-ФЗ ст. 10.2-1</p>
+      <p>152-ФЗ ст. 18 ч. 5: база данных россиян размещается в России. 149-ФЗ ст. 10.2-1: провайдер хостинга должен состоять в реестре Роскомнадзора, иначе он теряет право оказывать услуги.</p>
+      <p><b>Штраф:</b> Ч. 8 ст. 13.11 КоАП: 1–6 млн ₽. Хостер вне реестра — риск потери площадки, отдельного штрафа владельцу сайта нет</p></details>
+  </div>
+</details>
+<details class="item" data-status="Риск" data-prio="P2">
+  <summary>
+    <span class="id">CL-19</span>
+    <span class="name">Иностранные слова в интерфейсе и рекламных текстах сопровождаются переводом</span>
+    <span class="tag p2">P2</span>
+    <span class="st">Риск</span>
+  </summary>
+  <div class="body">
+    <details class="sub" open><summary>Что найдено</summary><p>Латиница в интерфейсе: «Телефон или email», «CRM», «API», «Excel», название «NoCodeCRM». ⚖</p></details>
+    <details class="sub" open><summary>Где</summary><p class="mono">index.html, строки 343, 55 и далее</p></details>
+    <details class="sub"><summary>Видимое или скрытое</summary><p>видимое</p></details>
+    <details class="sub"><summary>Зачем менять</summary><p>Сделано: «email» заменён на «электронная почта». CRM, API, Excel — общепринятые названия технологий и продуктов, оставлены. После правок: Риск. Название NoCodeCRM совпадает с доменом, но товарным знаком не подтверждено.</p></details>
+    <details class="sub"><summary>Норма и штраф</summary>
+      <p>ЗоЗПП ст. 10.1; 53-ФЗ ст. 3; 38-ФЗ ст. 5 ч. 11</p>
+      <p>ЗоЗПП ст. 10.1 и 53-ФЗ ст. 3: информация доводится на русском языке. 38-ФЗ ст. 5 ч. 11: иностранные слова в рекламе не должны искажать смысл, перевод приводится рядом. Исключения — фирменные наименования и товарные знаки.</p>
+      <p><b>Штраф:</b> Ч. 1 ст. 14.8 КоАП: предупреждение или 5–10 тыс. ₽</p></details>
+  </div>
+</details>
+<details class="item" data-status="Частично" data-prio="P2">
+  <summary>
+    <span class="id">CL-20</span>
+    <span class="name">Технических дефектов, мешающих проверке, нет</span>
+    <span class="tag p2">P2</span>
+    <span class="st">Частично</span>
+  </summary>
+  <div class="body">
+    <details class="sub" open><summary>Что найдено</summary><p>Файлов robots.txt и sitemap.xml нет. Битых ссылок и пустых href нет; якорные ссылки ведут на существующие блоки.</p></details>
+    <details class="sub" open><summary>Где</summary><p class="mono">корень сайта</p></details>
+    <details class="sub"><summary>Видимое или скрытое</summary><p>не применимо</p></details>
+    <details class="sub"><summary>Зачем менять</summary><p>Сделано: Добавлены robots.txt и sitemap.xml с четырьмя страницами. После правок: OK. Коды ответов проверить после публикации.</p></details>
+    <details class="sub"><summary>Норма и штраф</summary>
+      <p>—</p>
+      <p>Прямой нормы нет. Требование служебное: обязательные сведения и документы должны быть фактически доступны, иначе не выполняются требования 149-ФЗ ст. 10 ч. 2 и 152-ФЗ ст. 18.1 ч. 2.</p>
+      <p><b>Штраф:</b> Отдельной санкции нет; влияет на доступность обязательных сведений</p></details>
+  </div>
+</details>
+<details class="item" data-status="Требует данных" data-prio="P1">
+  <summary>
+    <span class="id">CL-21</span>
+    <span class="name">Уведомление об обработке персональных данных подано и соответствует фактической обработке</span>
+    <span class="tag p1">P1</span>
+    <span class="st">Требует данных</span>
+  </summary>
+  <div class="body">
+    <details class="sub" open><summary>Что найдено</summary><p>Подано ли уведомление об обработке персональных данных от ИП — неизвестно.</p></details>
+    <details class="sub" open><summary>Где</summary><p class="mono">реестр операторов Роскомнадзора</p></details>
+    <details class="sub"><summary>Видимое или скрытое</summary><p>не применимо</p></details>
+    <details class="sub"><summary>Зачем менять</summary><p>После правок: Требует данных. Уведомление от ИП с целями: заявки, договоры, рассылки, аналитика.</p></details>
+    <details class="sub"><summary>Норма и штраф</summary>
+      <p>152-ФЗ ст. 22 ч. 1, 3, 7</p>
+      <p>152-ФЗ ст. 22 ч. 1: оператор уведомляет Роскомнадзор до начала обработки. Ч. 7: об изменении сведений сообщается не позднее 15 рабочих дней. Уведомление должно соответствовать тому, что фактически собирается.</p>
+      <p><b>Штраф:</b> Ч. 10 ст. 13.11 КоАП: 100–300 тыс. ₽</p></details>
+  </div>
+</details>
+<details class="item" data-status="Не применимо" data-prio="P2">
+  <summary>
+    <span class="id">CL-22</span>
+    <span class="name">Сведения в отраслевых реестрах актуальны</span>
+    <span class="tag p2">P2</span>
+    <span class="st">Не применимо</span>
+  </summary>
+  <div class="body">
+    <details class="sub" open><summary>Что найдено</summary><p>Сайт не заявляет о включении в реестр российского ПО или об IT-аккредитации.</p></details>
+    <details class="sub" open><summary>Где</summary><p class="mono">index.html</p></details>
+    <details class="sub"><summary>Видимое или скрытое</summary><p>не применимо</p></details>
+    <details class="sub"><summary>Норма и штраф</summary>
+      <p>ПП РФ № 1236</p>
+      <p>ПП РФ № 1236: сведения о программном обеспечении в реестре российского ПО должны быть достоверными и поддерживаться в актуальном состоянии правообладателем.</p>
+      <p><b>Штраф:</b> Отдельной санкции нет; риск — утрата льгот и претензии по недостоверной рекламе</p></details>
+  </div>
+</details>
+<details class="item" data-status="Требует данных" data-prio="P1">
+  <summary>
+    <span class="id">CL-23</span>
+    <span class="name">Интернет-реклама, размещаемая вне собственного сайта, промаркирована и учтена</span>
+    <span class="tag p1">P1</span>
+    <span class="st">Требует данных</span>
+  </summary>
+  <div class="body">
+    <details class="sub" open><summary>Что найдено</summary><p>Будет ли реклама сайта размещаться на внешних площадках — неизвестно.</p></details>
+    <details class="sub" open><summary>Где</summary><p class="mono">—</p></details>
+    <details class="sub"><summary>Видимое или скрытое</summary><p>не применимо</p></details>
+    <details class="sub"><summary>Зачем менять</summary><p>После правок: Требует данных. При размещении — erid и передача в ОРД.</p></details>
+    <details class="sub"><summary>Норма и штраф</summary>
+      <p>38-ФЗ ст. 18.1</p>
+      <p>38-ФЗ ст. 18.1: интернет-реклама должна содержать пометку «Реклама», указание на рекламодателя и идентификатор; сведения передаются оператору рекламных данных и в единый реестр.</p>
+      <p><b>Штраф:</b> Ч. 15 и ч. 16 ст. 14.3 КоАП: 200–500 тыс. ₽ за каждый креатив</p></details>
+  </div>
+</details>
+<details class="item" data-status="Требует данных" data-prio="P0">
+  <summary>
+    <span class="id">CL-24</span>
+    <span class="name">Реклама не размещается на площадках запрещённых организаций и не остаётся там со старых времён</span>
+    <span class="tag p0">P0</span>
+    <span class="st">Требует данных</span>
+  </summary>
+  <div class="body">
+    <details class="sub" open><summary>Что найдено</summary><p>На сайте ссылок на запрещённые площадки нет (CL-01). Размещения вне сайта — по ответу владельца.</p></details>
+    <details class="sub" open><summary>Где</summary><p class="mono">—</p></details>
+    <details class="sub"><summary>Видимое или скрытое</summary><p>не применимо</p></details>
+    <details class="sub"><summary>Норма и штраф</summary>
+      <p>38-ФЗ (в редакции 72-ФЗ от 07.04.2025); ФЗ «О противодействии экстремистской деятельности»</p>
+      <p>38-ФЗ в редакции 72-ФЗ от 07.04.2025: запрещено распространять рекламу на информационных ресурсах организаций, признанных экстремистскими или нежелательными. Запрет касается и ранее размещённых материалов, которые остались доступны.</p>
+      <p><b>Штраф:</b> Ст. 14.3 КоАП: 100–500 тыс. ₽ за каждое размещение</p></details>
+  </div>
+</details>
+<details class="item" data-status="Требует данных" data-prio="P1">
+  <summary>
+    <span class="id">CL-25</span>
+    <span class="name">У оператора есть внутренние документы по обработке персональных данных</span>
+    <span class="tag p1">P1</span>
+    <span class="st">Требует данных</span>
+  </summary>
+  <div class="body">
+    <details class="sub" open><summary>Что найдено</summary><p>Внутренние документы ИП по обработке персональных данных не предъявлены.</p></details>
+    <details class="sub" open><summary>Где</summary><p class="mono">—</p></details>
+    <details class="sub"><summary>Видимое или скрытое</summary><p>не применимо</p></details>
+    <details class="sub"><summary>Зачем менять</summary><p>После правок: Требует данных. От них зависит п. 6.1 политики.</p></details>
+    <details class="sub"><summary>Норма и штраф</summary>
+      <p>152-ФЗ ст. 18.1 ч. 1, ст. 19; приказ Роскомнадзора № 178 от 27.10.2022</p>
+      <p>152-ФЗ ст. 18.1 ч. 1: оператор назначает ответственного за организацию обработки, издаёт документы, определяющие политику и порядок работы, и осуществляет внутренний контроль. Приказ Роскомнадзора № 178: определяет порядок оценки вреда субъектам.</p>
+      <p><b>Штраф:</b> Ч. 1 ст. 13.11 КоАП: 150–300 тыс. ₽; отсутствие политики — ч. 3: 30–60 тыс. ₽</p></details>
+  </div>
+</details>
+<details class="item" data-status="Требует данных" data-prio="P1">
+  <summary>
+    <span class="id">CL-26</span>
+    <span class="name">Определён порядок действий при утечке персональных данных</span>
+    <span class="tag p1">P1</span>
+    <span class="st">Требует данных</span>
+  </summary>
+  <div class="body">
+    <details class="sub" open><summary>Что найдено</summary><p>Порядок действий при утечке не предъявлен.</p></details>
+    <details class="sub" open><summary>Где</summary><p class="mono">—</p></details>
+    <details class="sub"><summary>Видимое или скрытое</summary><p>не применимо</p></details>
+    <details class="sub"><summary>Норма и штраф</summary>
+      <p>152-ФЗ ст. 21 ч. 3.1</p>
+      <p>152-ФЗ ст. 21 ч. 3.1: при неправомерной передаче данных оператор уведомляет Роскомнадзор в течение 24 часов о самом факте и в течение 72 часов — о результатах внутреннего расследования.</p>
+      <p><b>Штраф:</b> Ч. 11 ст. 13.11 КоАП: 1–3 млн ₽ за неуведомление</p></details>
+  </div>
+</details>
+<details class="item" data-status="Не применимо" data-prio="P2">
+  <summary>
+    <span class="id">CL-27</span>
+    <span class="name">Страницы в социальных сетях с аудиторией свыше 10 000 включены в перечень Роскомнадзора</span>
+    <span class="tag p2">P2</span>
+    <span class="st">Не применимо</span>
+  </summary>
+  <div class="body">
+    <details class="sub" open><summary>Что найдено</summary><p>Ссылок на страницы в социальных сетях на сайте нет.</p></details>
+    <details class="sub" open><summary>Где</summary><p class="mono">index.html</p></details>
+    <details class="sub"><summary>Видимое или скрытое</summary><p>не применимо</p></details>
+    <details class="sub"><summary>Норма и штраф</summary>
+      <p>149-ФЗ ст. 10.6</p>
+      <p>149-ФЗ ст. 10.6: владелец страницы с аудиторией свыше 10 000 пользователей обязан подать сведения о себе в Роскомнадзор. Размещать рекламу на странице, которая этого не сделала, запрещено.</p>
+      <p><b>Штраф:</b> Реклама на незарегистрированной странице — ст. 14.3 КоАП: 100–500 тыс. ₽</p></details>
+  </div>
+</details>
+<details class="item" data-status="Риск" data-prio="P1">
+  <summary>
+    <span class="id">CL-28</span>
+    <span class="name">На страницах заказа и оплаты указаны существенные условия для потребителя</span>
+    <span class="tag p1">P1</span>
+    <span class="st">Риск</span>
+  </summary>
+  <div class="body">
+    <details class="sub" open><summary>Что найдено</summary><p>Цены указаны в рублях, но рядом нет сроков оказания, порядка оплаты и возврата, адреса для претензий. Применимость спорна: услуги адресованы бизнесу, а не потребителям. ⚖</p></details>
+    <details class="sub" open><summary>Где</summary><p class="mono">index.html, раздел #price</p></details>
+    <details class="sub"><summary>Видимое или скрытое</summary><p>видимое</p></details>
+    <details class="sub"><summary>Зачем менять</summary><p>Сделано: Под калькулятором добавлена строка: цены справочные, условия фиксируются в договоре, претензии — на info@nocodecrm.ru. После правок: Риск. Формулировку «не являются публичной офертой» должен подтвердить юрист.</p></details>
+    <details class="sub"><summary>Норма и штраф</summary>
+      <p>ЗоЗПП ст. 8, 10, 16, 32; ГК РФ ст. 437</p>
+      <p>ЗоЗПП ст. 8 и 10: потребителю предоставляется необходимая и достоверная информация об услуге и её цене в рублях. Ст. 32: потребитель вправе отказаться от услуги, оплатив фактически понесённые расходы.</p>
+      <p><b>Штраф:</b> Ч. 1 ст. 14.8 КоАП: предупреждение или 5–10 тыс. ₽; ч. 2: 10–20 тыс. ₽</p></details>
+  </div>
+</details>
+<details class="item" data-status="Не применимо" data-prio="P2">
+  <summary>
+    <span class="id">CL-29</span>
+    <span class="name">Если сайт подбирает контент или предложения автоматически, опубликованы правила применения рекомендательных технологий</span>
+    <span class="tag p2">P2</span>
+    <span class="st">Не применимо</span>
+  </summary>
+  <div class="body">
+    <details class="sub" open><summary>Что найдено</summary><p>Калькулятор считает сумму по позициям, которые выбрал посетитель; автоматического подбора предложений нет.</p></details>
+    <details class="sub" open><summary>Где</summary><p class="mono">assets/js/main.js, массив PRICE</p></details>
+    <details class="sub"><summary>Видимое или скрытое</summary><p>не применимо</p></details>
+    <details class="sub"><summary>Норма и штраф</summary>
+      <p>149-ФЗ ст. 10.2-2</p>
+      <p>149-ФЗ ст. 10.2-2: владелец ресурса, применяющего рекомендательные технологии, обязан опубликовать правила их применения и свои контактные данные.</p>
+      <p><b>Штраф:</b> Отдельной санкции нет; при неустранении — ограничение доступа к ресурсу</p></details>
+  </div>
+</details>
+<details class="item" data-status="OK" data-prio="P1">
+  <summary>
+    <span class="id">CL-30</span>
+    <span class="name">На страницах используются только изображения, шрифты и видео, права на которые подтверждены</span>
+    <span class="tag p1">P1</span>
+    <span class="st">OK</span>
+  </summary>
+  <div class="body">
+    <details class="sub" open><summary>Что найдено</summary><p>Шрифты Unbounded и Golos Text — лицензия SIL OFL, лежат на своём домене. Логотип, 19 иконок, иллюстрации и og.png созданы для этого сайта; фотографий и видео нет. Права подтверждены владельцем.</p></details>
+    <details class="sub" open><summary>Где</summary><p class="mono">assets/fonts/, index.html (блок svg), assets/img/</p></details>
+    <details class="sub"><summary>Видимое или скрытое</summary><p>видимое</p></details>
+    <details class="sub"><summary>Зачем менять</summary><p>Сделано: Добавлен файл assets/fonts/LICENSE.txt. Логотип по просьбе владельца сделан одноцветным. После правок: OK.</p></details>
+    <details class="sub"><summary>Норма и штраф</summary>
+      <p>ГК РФ ст. 1229, 1252, 1301</p>
+      <p>ГК РФ ст. 1229: использование результата интеллектуальной деятельности без согласия правообладателя не допускается. Ст. 1301: правообладатель вправе требовать компенсацию вместо возмещения убытков.</p>
+      <p><b>Штраф:</b> Компенсация от 10 тыс. до 5 млн ₽ либо двукратная стоимость права использования — взыскивается правообладателем в суде</p></details>
+  </div>
+</details>
+
+<footer>Чек-лист: checklist_2026-09-16, собран 18.09.2026. Полный отчёт: audit_nocodecrm.ru_2026-11-12.md</footer>
+
+<script>
+document.querySelector('.bar').addEventListener('click', e => {
+  const b = e.target.closest('.chip'); if (!b) return;
+  const f = b.dataset.f, items = [...document.querySelectorAll('.item')];
+  if (f === 'открыть') {
+    const open = b.getAttribute('aria-pressed') === 'false';
+    items.forEach(i => { if (!i.classList.contains('hide')) i.open = open; });
+    b.setAttribute('aria-pressed', open); return;
+  }
+  document.querySelectorAll('.chip').forEach(c => { if (c.dataset.f !== 'открыть') c.setAttribute('aria-pressed', c === b); });
+  items.forEach(i => {
+    const ok = f === 'all' || i.dataset.status === f || i.dataset.prio === f;
+    i.classList.toggle('hide', !ok);
+  });
+});
+</script>

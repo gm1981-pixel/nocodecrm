@@ -1,0 +1,3 @@
+Unbounded — Copyright The Unbounded Project Authors (https://github.com/w3f/unbounded).
+Golos Text — Copyright The Golos Text Project Authors (https://github.com/googlefonts/golos-text).
+Оба шрифта распространяются по лицензии SIL Open Font License 1.1: https://openfontlicense.org
