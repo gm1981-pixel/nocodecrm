@@ -85,7 +85,9 @@ NoCodeCRM — лендинг nocodecrm.ru
          -> Add deploy key, галочку «Allow write access» НЕ ставить.
 
     3. Чтобы ssh доверял GitHub (общий файл, для root и www-data сразу):
+         mkdir -p /etc/ssh
          ssh-keygen -F github.com -f /etc/ssh/ssh_known_hosts || ssh-keyscan github.com >> /etc/ssh/ssh_known_hosts
+         chmod 644 /etc/ssh/ssh_known_hosts
 
     4. Клон в папку сайта. Работает и в пустой папке, и поверх уже
        залитых файлов (они заменятся версией из main, лишние останутся):
@@ -165,7 +167,13 @@ NoCodeCRM — лендинг nocodecrm.ru
                                     сайте (клон не сделан, шаг 4).
     Permission denied (publickey)   ключ не добавлен в GitHub (шаг 2) или
                                     у www-data нет доступа к deploy_key.
-    Host key verification failed    шаг 3.
+    Host key verification failed    шаг 3. Типичный случай: клон делали от
+                                    root и ответили «yes» на вопрос ssh —
+                                    ключ GitHub попал только в
+                                    /root/.ssh/known_hosts, а update.php
+                                    работает от www-data и его не видит.
+                                    Выполнить шаг 3, проверить командой
+                                    runuser -u www-data -- git -C /var/www/html fetch
     detected dubious ownership      папка сайта не у www-data:
                                     chown -R www-data /var/www/html
     cannot open .../update_site     нет скрипта (шаг 5) или он не читается.
