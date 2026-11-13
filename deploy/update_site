@@ -1,0 +1,25 @@
+#!/bin/sh
+# Обновление сайта nocodecrm.ru из GitHub. Копия этого файла лежит на
+# сервере в /etc/cron.daily/update_site (без расширения, с правом запуска).
+# Запускают его cron (от root, раз в сутки) и update.php (от www-data).
+# Как всё настроить — README.txt, раздел «Выкладка».
+
+SITE=/var/www/html     # папка сайта = клон репозитория
+WEB_USER=www-data      # от кого работает PHP; ему принадлежат файлы сайта
+
+set -e
+
+# Всё делаем от имени WEB_USER: иначе запуск из cron оставит файлы root'а,
+# и следующий запуск из update.php не сможет их перезаписать.
+if [ "$(id -u)" = 0 ]; then
+    exec runuser -u "$WEB_USER" -- /bin/sh "$0" "$@"
+fi
+
+# Один запуск за раз. Блокируем сам этот файл: открыть его на чтение
+# могут и root, и www-data, писать никуда не нужно.
+exec 9<"$0"
+flock -n 9 || { echo "Update already running"; exit 1; }
+
+cd "$SITE"
+git reset --hard
+git pull --ff-only
